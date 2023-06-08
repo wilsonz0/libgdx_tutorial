@@ -34,7 +34,7 @@ public class tutorialGame extends Game {
 	boolean activated = false;
 	private long lastPowerTime;
 	
-	public int score = 0;
+	public int score = 100000;
 	
 	@Override
 	public void create () {
@@ -98,12 +98,18 @@ public class tutorialGame extends Game {
 		if (bucket.x < 0) bucket.x = 0;
 		if (bucket.x > 725) bucket.x = 725;
 		
+		
+		// Batch Drawing		
 		batch.begin();
+		
 		batch.draw(bucketImg, bucket.x, bucket.y);
 		for(Rectangle raindrop: raindrops) {
 		      batch.draw(dropletImg, raindrop.x, raindrop.y);
 		}
-		font.draw(batch, Integer.toString(score), 20, 20);
+		
+		
+		font.draw(batch, Integer.toString(score), 10, 20);
+		
 		batch.end();
 	}
 	
